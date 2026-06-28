@@ -1,0 +1,28 @@
+<div class="card">
+    <h2>📊 Summary</h2>
+    <div class="button-row">
+        <button (click)="loadSummary()">Show Summary</button>
+        <button class="hide-btn" *ngIf="summary" (click)="hideSummary()">Hide</button>
+    </div>
+
+    <div *ngIf="summaryError" class="error">{{ summaryError }}</div>
+
+    <table *ngIf="summary" class="summary-table">
+        <thead>
+            <tr>
+                <th class="col-name">Table names</th>
+                <th class="col-name">No. of rows</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let key of keys(summary)">
+                <td class="col-count">{{ key }}</td>
+                <td class="col-count">{{ summary[key] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!summary" class="hint">
+        Click "Show Summary" to see data.
+    </div>
+</div>

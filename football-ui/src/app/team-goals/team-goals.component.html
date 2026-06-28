@@ -1,0 +1,46 @@
+<div class="card">
+  <h2>⚽ Team Goals Info.</h2>
+
+  <!-- Inputs -->
+  <div class="inputs-row">
+    <input [(ngModel)]="teamIdQuery" placeholder="Team ID">
+    <input [(ngModel)]="teamNameQuery" placeholder="Team Name">
+    <button (click)="searchGoals()">Search</button>
+    <button class="hide-btn" *ngIf="showTable" (click)="hideTable()">Hide</button>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="teamError" class="error">
+    {{ teamError }}
+  </div>
+
+  <!-- Hint -->
+  <div *ngIf="!showTable && !teamError" class="hint">
+    Enter Team ID or Team Name to see Goal Statistics.
+  </div>
+
+  <!-- Goals Table -->
+  <div *ngIf="showTable">
+    <h3>Goals Summary</h3>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th class="col-name">Type</th>
+          <th class="col-name">Goals</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="col-count">Home Goals</td>
+          <td class="col-count">{{ goalsData?.home_goals }}</td>
+        </tr>
+        <tr>
+          <td class="col-count">Away Goals</td>
+          <td class="col-count">{{ goalsData?.away_goals }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

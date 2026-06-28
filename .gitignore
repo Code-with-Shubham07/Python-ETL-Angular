@@ -1,0 +1,24 @@
+
+# Ignore virtual environment
+venv/
+
+# Ignore Python cache
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Ignore data outputs and logs
+Data/output/
+Data/transformed/
+logs.txt
+
+# Ignore OS and editor files
+*.log
+*.DS_Store
+.vscode/
+
+#Ignore .env file
+.env
+
+# Ignore sqlite database
+Data/database.sqlite

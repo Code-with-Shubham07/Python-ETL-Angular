@@ -1,0 +1,36 @@
+<div class="card">
+  <h2>🌍 Country / League Info.</h2>
+
+  <div class="inputs-row">
+    <input [(ngModel)]="countryIdQuery" placeholder="Country ID">
+    <input [(ngModel)]="countryNameQuery" placeholder="Country Name">
+    <button (click)="searchCountry()">Search</button>
+    <button class="hide-btn" *ngIf="showTable" (click)="hideTable()">Hide</button>
+  </div>
+
+  <div *ngIf="countryError" class="error">{{ countryError }}</div>
+  
+
+  <!-- Country + Leagues Table -->
+  <div *ngIf="showTable">
+    <h3>League Data</h3>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th class="col-name">Country Name</th>
+          <th class="col-name">League Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let lg of leagues">
+          <td class="col-count">{{ countryName }}</td>
+          <td class="col-count">{{ lg }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!showTable && !countryError" class="hint">
+    Enter Country ID or Country Name to see League Info.
+  </div>
+</div>

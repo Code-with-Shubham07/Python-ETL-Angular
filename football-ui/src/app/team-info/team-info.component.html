@@ -1,0 +1,79 @@
+<div class="card">
+  <h2>🏟️ Team Info.</h2>
+
+  <div class="inputs-row">
+    <input [(ngModel)]="teamIdQuery" placeholder="Team ID">
+    <input [(ngModel)]="teamNameQuery" placeholder="Team Name">
+    <button (click)="searchTeam()">Search</button>
+    <button class="hide-btn" *ngIf="showTables" (click)="hideTables()">Hide</button>
+  </div>
+
+  <div *ngIf="teamError" class="error">{{ teamError }}</div>
+
+  <!-- Team Data Table -->
+  <div *ngIf="showTables">
+
+    <h3>Team Data</h3>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th class="col-name">Field</th>
+          <th class="col-name">Value</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of convertToRows(teamData)">
+          <td class="col-count">{{ row[0] }}</td>
+          <td class="col-count">{{ row[1] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- League Data -->
+    <h3>League Data</h3>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th class="col-name">League Name</th>
+          <th class="col-name">ID</th>
+          <th class="col-name">Country ID</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let lg of leagueData">
+          <td class="col-count">{{ lg.name }}</td>
+          <td class="col-count">{{ lg.id }}</td>
+          <td class="col-count">{{ lg.country_id }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Country Data -->
+    <h3>Country Data</h3>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th class="col-name">Country</th>
+          <th class="col-name">ID</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let c of countryData">
+          <td class="col-count">{{ c.name }}</td>
+          <td class="col-count">{{ c.id }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+
+  </div>
+    <div *ngIf="!showTables && !teamError" class="hint">
+        Enter Team ID or Team Name to see Team Info.
+    </div>
+</div>

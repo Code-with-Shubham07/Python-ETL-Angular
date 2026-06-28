@@ -1,0 +1,30 @@
+data_paths:
+  country: ../Data/output/Country.csv
+  league: ../Data/output/League.csv
+  match: ../Data/output/Match.csv
+  player_attr: ../Data/output/Player_Attributes.csv
+  player: ../Data/output/Player.csv
+  team_attr: ../Data/output/Team_Attributes.csv
+  team: ../Data/output/Team.csv
+
+output_path: ../Data/transformed/
+
+select_columns:
+  country: [id, name]
+  league: [id, name, country_id]
+  match:
+    [
+      id,
+      country_id,
+      league_id,
+      match_api_id,
+      date,
+      home_team_api_id,
+      away_team_api_id,
+      home_team_goal,
+      away_team_goal,
+    ]
+  player_attr: [player_api_id, overall_rating, potential]
+  player: [player_api_id, player_name, birthday, height, weight]
+  team_attr: [team_api_id, buildUpPlaySpeed, chanceCreationPassing]
+  team: [team_api_id, team_long_name, team_short_name]

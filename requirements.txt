@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+pyyaml
+neo4j
+pytest
+requests
+jsonschema
+python-dotenv

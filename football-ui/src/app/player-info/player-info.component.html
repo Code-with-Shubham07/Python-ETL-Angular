@@ -1,0 +1,34 @@
+<div class="card">
+    <h2>🧍 Player Info.</h2>
+
+    <div class="inputs-row">
+        <input [(ngModel)]="playerIdQuery" placeholder="Player ID">
+        <input [(ngModel)]="playerNameQuery" placeholder="Player Name">
+        <button (click)="searchPlayer()">Search</button>
+        <button class="hide-btn" *ngIf="showTable" (click)="hideTable()">Hide</button>
+    </div>
+
+    <div *ngIf="playerError" class="error">{{ playerError }}</div>
+    
+    <div *ngIf="showTable">
+        <h3>Player Data</h3>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th class="col-name">Field</th>
+                    <th class="col-name">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of convertToRows(playerData)">
+                    <td class="col-count">{{ row[0] }}</td>
+                    <td class="col-count">{{ row[1] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="!showTable && !playerError" class="hint">
+        Enter Player ID or Player Name to see Player Info.
+    </div>
+</div>

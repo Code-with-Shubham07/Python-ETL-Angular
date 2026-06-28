@@ -1,0 +1,11 @@
+database_path: "Data/database.sqlite"
+output_path: "Data/output/"
+tables_to_extract:
+  - Country
+  - League
+  - Match
+  - Player
+  - Player_Attributes
+  - Team
+  - Team_Attributes
+log_file: "logs.txt"

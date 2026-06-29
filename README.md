@@ -211,6 +211,9 @@ shubham
 ## Running Frontend
 
 ```bash
+If Angular CLI not installed globally, Run this command - 
+npm install -g @angular/cli
+ 
 cd football-ui
 npm install
 npm start / ng serve
